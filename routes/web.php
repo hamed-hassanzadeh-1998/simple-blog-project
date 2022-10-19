@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\AdminUserController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +22,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('admin/users',AdminUserController::class);
 
 require __DIR__.'/auth.php';
