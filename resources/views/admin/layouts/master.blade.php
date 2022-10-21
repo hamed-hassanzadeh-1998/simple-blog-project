@@ -9,6 +9,7 @@
 <html lang="IR-fa" dir="rtl">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +20,7 @@
     <title>صفحه مدیریت</title>
     <!-- Icons -->
     <link rel="stylesheet" href="{{asset('css/all.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 
 
@@ -37,7 +39,9 @@
 <header class="navbar">
     <div class="container-fluid">
         <button class="navbar-toggler mobile-toggler hidden-lg-up" type="button">&#9776;</button>
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="#">
+            <img src="{{asset('admin/img/avatars/roxo-avatar.jpg')}}" class="img-avatar img" alt="admin@bootstrapmaster.com">
+        </a>
         <ul class="nav navbar-nav hidden-md-down">
             <li class="nav-item">
                 <a class="nav-link navbar-toggler layout-toggler" href="#">&#9776;</a>
@@ -55,17 +59,17 @@
         </ul>
         <ul class="nav navbar-nav pull-left hidden-md-down">
             <li class="nav-item">
-                <a class="nav-link aside-toggle" href="#"><i class="icon-bell"></i><span class="tag tag-pill tag-danger">5</span></a>
+                <a class="nav-link aside-toggle" href="#"><i class="fa fa-bell"></i><span class="tag tag-pill tag-danger">5</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-list"></i></a>
+                <a class="nav-link" href="#"><i class="fa fa-list"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-location-pin"></i></a>
+                <a class="nav-link" href="#"><i class="fa fa-location-pin"></i></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/avatars/roxo-avatar.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                    <img src="{{asset('admin/img/avatars/roxo-avatar.jpg')}}" class="img-avatar" alt="admin@bootstrapmaster.com">
                     <span class="hidden-md-down">مدیر</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -90,52 +94,52 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
+                <a class="nav-link" href="index.html"><i class="fa fa-tachometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
             </li>
 
             <li class="nav-title">
                 مدیریت کاربران
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-user-follow"></i> ثبت کاربر</a>
-                <a class="nav-link" href="#"><i class="icon-people"></i> لیست کاربران</a>
-                <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
+                <a class="nav-link" href="#"><i class="fas fa-user-plus"></i> ثبت کاربر</a>
+                <a class="nav-link" href="#"><i class="fas fa-users"></i> لیست کاربران</a>
+                <a class="nav-link" href="#"><i class="	fas fa-user-slash"></i> دسترسی کاربران</a>
             </li>
 
             <li class="nav-title">
                 مدیریت فایل ها
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-docs"></i> لیست فایل ها</a>
+                <a class="nav-link" href="#"><i class="fa icon-docs"></i> لیست فایل ها</a>
             </li>
 
             <li class="nav-title">
                 گزارش گیری
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-people"></i> کاربران</a>
-                <a class="nav-link" href="#"><i class="icon-docs"></i>  فایل ها</a>
+                <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> کاربران</a>
+                <a class="nav-link" href="#"><i class="fa icon-docs"></i>  فایل ها</a>
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> ثبت کاربر جدید</a>
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-puzzle-piece"></i> ثبت کاربر جدید</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="components-buttons.html"><i class="icon-puzzle"></i> لیست کاربران</a>
+                        <a class="nav-link" href="components-buttons.html"><i class="fa fa-puzzle-piece"></i> لیست کاربران</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components-social-buttons.html"><i class="icon-puzzle"></i> Social Buttons</a>
+                        <a class="nav-link" href="components-social-buttons.html"><i class="fa fa-puzzle-piece"></i> Social Buttons</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components-cards.html"><i class="icon-puzzle"></i> Cards</a>
+                        <a class="nav-link" href="components-cards.html"><i class="fa fa-puzzle-piece"></i> Cards</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components-forms.html"><i class="icon-puzzle"></i> Forms</a>
+                        <a class="nav-link" href="components-forms.html"><i class="fa fa-puzzle-piece"></i> Forms</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components-switches.html"><i class="icon-puzzle"></i> Switches</a>
+                        <a class="nav-link" href="components-switches.html"><i class="fa fa-puzzle-piece"></i> Switches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components-tables.html"><i class="icon-puzzle"></i> Tables</a>
+                        <a class="nav-link" href="components-tables.html"><i class="fa fa-puzzle-piece"></i> Tables</a>
                     </li>
                 </ul>
             </li>
@@ -195,9 +199,9 @@
         <!-- Breadcrumb Menu-->
         <li class="breadcrumb-menu">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <a class="btn btn-secondary" href="#"><i class="icon-speech"></i></a>
-                <a class="btn btn-secondary" href="./"><i class="icon-graph"></i> &nbsp;داشبرد</a>
-                <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;تنظیمات</a>
+                <a class="btn btn-secondary" href="#"><i class="fas fa-comment"></i></a>
+                <a class="btn btn-secondary" href="./"><i class="fa fa-bar-chart"></i> &nbsp;داشبرد</a>
+                <a class="btn btn-secondary" href="#"><i class="fa fa-cog"></i> &nbsp;تنظیمات</a>
             </div>
         </li>
     </ol>
@@ -211,7 +215,7 @@
                         <div class="card-block p-b-0">
                             <div class="btn-group pull-left">
                                 <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-settings"></i>
+                                    <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Action</a>
@@ -233,7 +237,7 @@
                     <div class="card card-inverse card-info">
                         <div class="card-block p-b-0">
                             <button type="button" class="btn btn-transparent active p-a-0 pull-left">
-                                <i class="icon-location-pin"></i>
+                                <i class="fa fa-map-marker"></i>
                             </button>
                             <h4 class="m-b-0">9.823</h4>
                             <p>کاربر آنلاین</p>
@@ -250,7 +254,7 @@
                         <div class="card-block p-b-0">
                             <div class="btn-group pull-left">
                                 <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-settings"></i>
+                                    <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Action</a>
@@ -273,7 +277,7 @@
                         <div class="card-block p-b-0">
                             <div class="btn-group pull-left">
                                 <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-settings"></i>
+                                    <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Action</a>
@@ -302,13 +306,13 @@
 <aside class="aside-menu">
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#timeline" role="tab"><i class="icon-list"></i></a>
+            <a class="nav-link active" data-toggle="tab" href="#timeline" role="tab"><i class="fa fa-list"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#messages" role="tab"><i class="icon-speech"></i></a>
+            <a class="nav-link" data-toggle="tab" href="#messages" role="tab"><i class="fa fa-comment"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#settings" role="tab"><i class="icon-settings"></i></a>
+            <a class="nav-link" data-toggle="tab" href="#settings" role="tab"><i class="fa fa-cog"></i></a>
         </li>
     </ul>
     <!-- Tab panes -->
@@ -326,8 +330,8 @@
                 <div>Meeting with
                     <strong>Lucas</strong>
                 </div>
-                <small class="text-muted m-r-1"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
-                <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA</small>
+                <small class="text-muted m-r-1"><i class="fa fa-calendar"></i>&nbsp; 1 - 3pm</small>
+                <small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp; Palo Alto, CA</small>
             </div>
             <hr class="m-x-1 m-y-0">
             <div class="callout callout-info m-a-0 p-y-1">
@@ -337,8 +341,8 @@
                 <div>Skype with
                     <strong>Megan</strong>
                 </div>
-                <small class="text-muted m-r-1"><i class="icon-calendar"></i>&nbsp; 4 - 5pm</small>
-                <small class="text-muted"><i class="icon-social-skype"></i>&nbsp; On-line</small>
+                <small class="text-muted m-r-1"><i class="fa fa-calendar"></i>&nbsp; 4 - 5pm</small>
+                <small class="text-muted"><i class="fas fa-toggle-on"></i>&nbsp; On-line</small>
             </div>
             <hr class="transparent m-x-1 m-y-0">
             <div class="callout m-a-0 p-y-h text-muted text-xs-center bg-faded text-uppercase">
@@ -350,8 +354,8 @@
                 <div>New UI Project -
                     <strong>deadline</strong>
                 </div>
-                <small class="text-muted m-r-1"><i class="icon-calendar"></i>&nbsp; 10 - 11pm</small>
-                <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ</small>
+                <small class="text-muted m-r-1"><i class="fa fa-calendar"></i>&nbsp; 10 - 11pm</small>
+                <small class="text-muted"><i class="fas fa-home"></i>&nbsp; creativeLabs HQ</small>
                 <div class="avatars-stack m-t-h">
                     <div class="avatar avatar-xs">
                         <img src="img/avatars/2.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
@@ -374,16 +378,16 @@
             <div class="callout callout-success m-a-0 p-y-1">
                 <div>
                     <strong>#10 Startups.Garden</strong>Meetup</div>
-                <small class="text-muted m-r-1"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
-                <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA</small>
+                <small class="text-muted m-r-1"><i class="fa fa-calendar"></i>&nbsp; 1 - 3pm</small>
+                <small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp; Palo Alto, CA</small>
             </div>
             <hr class="m-x-1 m-y-0">
             <div class="callout callout-primary m-a-0 p-y-1">
                 <div>
                     <strong>Team meeting</strong>
                 </div>
-                <small class="text-muted m-r-1"><i class="icon-calendar"></i>&nbsp; 4 - 6pm</small>
-                <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ</small>
+                <small class="text-muted m-r-1"><i class="fa calendar"></i>&nbsp; 4 - 6pm</small>
+                <small class="text-muted"><i class="fas fa-home"></i>&nbsp; creativeLabs HQ</small>
                 <div class="avatars-stack m-t-h">
                     <div class="avatar avatar-xs">
                         <img src="img/avatars/2.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
