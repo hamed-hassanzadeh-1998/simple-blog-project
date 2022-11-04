@@ -20,6 +20,7 @@
     <title>صفحه مدیریت</title>
     <!-- Icons -->
     <link rel="stylesheet" href="{{asset('css/all.css')}}">
+    <!-- CSS only -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 
@@ -101,8 +102,8 @@
                 مدیریت کاربران
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-user-plus"></i> ثبت کاربر</a>
-                <a class="nav-link" href="#"><i class="fas fa-users"></i> لیست کاربران</a>
+                <a class="nav-link" href="{{route('users.create')}}"><i class="fas fa-user-plus"></i> ثبت کاربر</a>
+                <a class="nav-link" href="{{route('users.index')}}"><i class="fas fa-users"></i> لیست کاربران</a>
                 <a class="nav-link" href="#"><i class="	fas fa-user-slash"></i> دسترسی کاربران</a>
             </li>
 
@@ -206,7 +207,7 @@
         </li>
     </ol>
 
-    <div class="container-fluid">
+    <div class="container-fluid bg-content">
 
         <div class="animated fadeIn">
 {{--            <div class="row">--}}
