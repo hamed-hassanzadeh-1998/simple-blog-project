@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             @include('partials.form-errors')
-            {!! Form::open(['method'=>'POST','route'=>'users.store']) !!}
+            {!! Form::open(['method'=>'POST','route'=>'users.store','files'=>true]) !!}
             <div class="form-group">
                 {!! Form::label('name',"نام:") !!}
                 {!! Form::text('name',null,['class'=>'form-control']) !!}
@@ -21,7 +21,11 @@
             </div>
             <div class="form-group">
                 {!! Form::label('status',"وضعیت:") !!}
-                {!! Form::select('status',[0=>'غیرفعال',1=>'فعال'], 0,['class'=>'form-control']) !!}
+                {!! Form::select('status',[0=>'غیرفعال',1=>'فعال'], 1,['class'=>'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('avatar','تصویر پروفایل') !!}
+                {!! Form::file('avatar',null,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('password',"رمز عبور:") !!}

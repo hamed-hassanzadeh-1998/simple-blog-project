@@ -5,6 +5,7 @@
     <table class="table table-hover">
         <thead>
         <tr>
+            <th>تصویر</th>
             <th>نام</th>
             <th>ایمیل</th>
             <th>سمت</th>
@@ -15,6 +16,11 @@
         <tbody>
         @foreach($users as $user)
             <tr>
+                @if($user->photo_id)
+                <td><img src="{{$user->photo->path}}" alt="" width="80px"></td>
+                @else
+                <td></td>
+                @endif
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>

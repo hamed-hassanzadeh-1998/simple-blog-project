@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Models\Photo;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
@@ -17,8 +19,8 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users=User::with('roles')->get();
-        return  view('admin.users.index',compact(['users']));
+        $users = User::with('roles')->get();
+        return view('admin.users.index', compact(['users']));
     }
 
     /**
@@ -28,26 +30,47 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        $roles=Role::pluck('name','id');
+        $roles = Role::pluck('name', 'id');
         //dd($roles);
-        return view('admin.users.create',compact(['roles']));
+        return view('admin.users.create', compact(['roles']));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(UserRequest $request)
     {
-        return $request->all();
+        //dd($request->all());
+        $user = new User();
+        if ($file = $request->file('avatar')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images',$name);
+            $photo = new Photo();
+            $photo->name = $file->getClientOriginalName();
+            $photo->path = $name;
+            $photo->user_id = Auth::id();
+            $photo->save();
+            $user->photo_id = $photo->id;
+
+        }
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('email'));
+        $user->status = $request->input('status');
+        $user->save();
+        $user->roles()->attach($request->input('roles'));
+
+        return redirect('/admin/users');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -58,7 +81,7 @@ class AdminUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -69,8 +92,8 @@ class AdminUserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -81,7 +104,7 @@ class AdminUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -46,4 +46,13 @@ class User extends Authenticatable
     {
        return $this->belongsToMany(Role::class,'role_user');
     }
+    public function photos()
+    {
+       return $this->hasMany(Photo::class);
+    }
+
+    public function photo()
+    {
+        return $this->belongsTo(Photo::class);
+    }
 }
