@@ -16,12 +16,8 @@
         <tbody>
         @foreach($users as $user)
             <tr>
-                @if($user->photo_id)
-                <td><img src="{{$user->photo->path}}" alt="" width="80px"></td>
-                @else
-                <td></td>
-                @endif
-                <td>{{$user->name}}</td>
+                <td><img src="{{$user->photo?$user->photo->path : "http://www.placehold.it/400"}}" alt="" class="img-fluid img-circle" width="65"></td>
+                <td><a href="{{route('users.edit',$user)}}">{{$user->name}}</a></td>
                 <td>{{$user->email}}</td>
                 <td>
                     <ul style="list-style: none">

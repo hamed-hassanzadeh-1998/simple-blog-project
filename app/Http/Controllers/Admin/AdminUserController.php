@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserEditRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\Photo;
 use App\Models\Role;
@@ -47,14 +48,13 @@ class AdminUserController extends Controller
         $user = new User();
         if ($file = $request->file('avatar')) {
             $name = time() . $file->getClientOriginalName();
-            $file->move('images',$name);
+            $file->move('images', $name);
             $photo = new Photo();
             $photo->name = $file->getClientOriginalName();
             $photo->path = $name;
             $photo->user_id = Auth::id();
             $photo->save();
             $user->photo_id = $photo->id;
-
         }
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -75,7 +75,7 @@ class AdminUserController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -86,7 +86,9 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $roles = Role::pluck('name', 'id');
+        return view('admin.users.edit', compact(['user', 'roles']));
     }
 
     /**
@@ -96,9 +98,32 @@ class AdminUserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserEditRequest $request, $id)
     {
-        //
+        $user=User::findOrFail($id);
+        if ($file = $request->file('avatar')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = new Photo();
+            $photo->name = $file->getClientOriginalName();
+            $photo->path = $name;
+            $photo->user_id = Auth::id();
+            $photo->save();
+            $user->photo_id = $photo->id;
+        }
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        if ($request->input('password')!="") {
+            $user->password = bcrypt($request->input('email'));
+        }
+
+        $user->status = $request->input('status');
+        $user->save();
+        $user->roles()->sync($request->input('roles'));
+
+        return redirect('/admin/users');
+
+
     }
 
     /**
@@ -109,6 +134,7 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::findOrFail($id);
+        return delete($user);
     }
 }
