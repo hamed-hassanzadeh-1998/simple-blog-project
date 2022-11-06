@@ -23,6 +23,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('admin/users',AdminUserController::class);
+Route::group(['middleware'=>'Admin'],function (){
+    Route::resource('admin/users',AdminUserController::class);
+});
+
+
+
 
 require __DIR__.'/auth.php';

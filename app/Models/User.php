@@ -44,15 +44,26 @@ class User extends Authenticatable
 
     public function roles()
     {
-       return $this->belongsToMany(Role::class,'role_user');
+        return $this->belongsToMany(Role::class, 'role_user');
     }
+
     public function photos()
     {
-       return $this->hasMany(Photo::class);
+        return $this->hasMany(Photo::class);
     }
 
     public function photo()
     {
         return $this->belongsTo(Photo::class);
+    }
+
+    public function isAdmin()
+    {
+        foreach ($this->roles as $role) {
+            if ($role->name == 'مدیر') {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -104,7 +104,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('users.create')}}"><i class="fas fa-user-plus"></i> ثبت کاربر</a>
                 <a class="nav-link" href="{{route('users.index')}}"><i class="fas fa-users"></i> لیست کاربران</a>
-                <a class="nav-link" href="#"><i class="	fas fa-user-slash"></i> دسترسی کاربران</a>
             </li>
 
             <li class="nav-title">
