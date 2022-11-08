@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('status',"وضعیت:") !!}
-                {!! Form::select('status',[0=>'غیرفعال',1=>'فعال'], null,['class'=>'form-control']) !!}
+                {!! Form::select('status',[0=>'غیرفعال',1=>'فعال'], 1,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('avatar','تصویر پروفایل') !!}
@@ -35,9 +35,15 @@
                 {!! Form::password('password',['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
-                {!! Form::submit('ذخیره',['class'=>'btn btn-success']) !!}
+                {!! Form::submit('بروز رسانی',['class'=>'btn btn-success col-md-3']) !!}
             </div>
             {!! Form::close() !!}
+
+            {!! Form::open(['method'=>'DELETE','action'=>['Admin\AdminUserController@destroy',$user->id]]) !!}
+            <div class="form-group">
+                {!! Form::submit('حذف کاربر',['class'=>'btn btn-danger col-md-3']) !!}
+            </div>
+            {!! Form::close()  !!}
         </div>
     </div>
 

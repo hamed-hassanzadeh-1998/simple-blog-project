@@ -98,12 +98,17 @@
                 <a class="nav-link" href="index.html"><i class="fa fa-tachometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
             </li>
 
-            <li class="nav-title">
-                مدیریت کاربران
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('users.create')}}"><i class="fas fa-user-plus"></i> ثبت کاربر</a>
-                <a class="nav-link" href="{{route('users.index')}}"><i class="fas fa-users"></i> لیست کاربران</a>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fas fa-user-circle"></i>کاربران</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('users.index')}}"><i class="fa-solid fa-users"></i> لیست کاربران</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('users.create')}}"><i class="fa-solid fa-user-plus"></i>ثبت کاربر جدید</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-title">
@@ -119,29 +124,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> کاربران</a>
                 <a class="nav-link" href="#"><i class="fa icon-docs"></i>  فایل ها</a>
-            </li>
-            <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-puzzle-piece"></i> ثبت کاربر جدید</a>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-buttons.html"><i class="fa fa-puzzle-piece"></i> لیست کاربران</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-social-buttons.html"><i class="fa fa-puzzle-piece"></i> Social Buttons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-cards.html"><i class="fa fa-puzzle-piece"></i> Cards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-forms.html"><i class="fa fa-puzzle-piece"></i> Forms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-switches.html"><i class="fa fa-puzzle-piece"></i> Switches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-tables.html"><i class="fa fa-puzzle-piece"></i> Tables</a>
-                    </li>
-                </ul>
             </li>
 
             <!--<li class="nav-item nav-dropdown">

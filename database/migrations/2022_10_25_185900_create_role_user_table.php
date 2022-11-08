@@ -17,8 +17,8 @@ return new class extends Migration
             $table->engine='InnoDB';
             $table->integer('user_id')->unsigned();
             $table->integer('role_id')->unsigned();
-            $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

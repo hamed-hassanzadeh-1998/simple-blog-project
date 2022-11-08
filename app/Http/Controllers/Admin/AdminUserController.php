@@ -10,6 +10,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminUserController extends Controller
 {
@@ -62,7 +63,7 @@ class AdminUserController extends Controller
         $user->status = $request->input('status');
         $user->save();
         $user->roles()->attach($request->input('roles'));
-
+        Session::flash('create_user','کاربر با موفقیت ثبت شد.');
         return redirect('/admin/users');
 
     }
@@ -120,7 +121,7 @@ class AdminUserController extends Controller
         $user->status = $request->input('status');
         $user->save();
         $user->roles()->sync($request->input('roles'));
-
+        Session::flash('update_user','اطلاعات کاربر با موفقیت به روز رسانی شد');
         return redirect('/admin/users');
 
 
@@ -135,6 +136,11 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         $user=User::findOrFail($id);
-        return delete($user);
+        $photo=Photo::findOrFail($user->photo_id);
+        unlink(public_path().$user->photo->path);
+        $photo->delete();
+        $user->delete();
+        Session::flash('delete_user','کاربر با موفقیت حذف شد');
+        return redirect('/admin/users');
     }
 }
