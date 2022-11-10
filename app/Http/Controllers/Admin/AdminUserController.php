@@ -21,7 +21,8 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::with('roles')->get();
+        $users = User::with('roles','photo')->get();
+       // dd($users);
         return view('admin.users.index', compact(['users']));
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -25,6 +26,7 @@ Route::get('/dashboard', function () {
 
 Route::group(['middleware'=>'Admin'],function (){
     Route::resource('admin/users',AdminUserController::class);
+    Route::resource('admin/posts',AdminPostController::class);
 });
 
 

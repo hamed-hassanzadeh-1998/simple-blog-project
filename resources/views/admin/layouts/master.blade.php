@@ -110,6 +110,17 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fas fa fa-window-maximize"></i>مطالب</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('posts.index')}}"><i class="fa-solid  fa-window-maximize"></i> لیست مطالب</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('posts.create')}}"><i class="fa-solid  fa-window-maximize"></i>ثبت مطلب جدید</a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="nav-title">
                 مدیریت فایل ها
