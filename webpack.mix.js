@@ -6,7 +6,6 @@ mix.styles([
     'resources/admin/css/font-awesome.css',
     'resources/admin/css/simple-line-icons.min.css',
     'resources/admin/dist/style.css',
-    'resources/admin/dist/style-custom.css',
 ], 'public/css/all.css')
 mix.sass('resources/admin/css/fonta.scss','public/css/all.css')
 mix.scripts([
