@@ -121,6 +121,17 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>دسته بندی</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('categories.index')}}"><i class="fa-solid  fa-window-maximize"></i> لیست دسته بندی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('categories.create')}}"><i class="fa-solid  fa-window-maximize"></i>ثبت دسته بندی جدید</a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="nav-title">
                 مدیریت فایل ها
