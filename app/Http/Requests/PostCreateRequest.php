@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PostCreateRequest extends FormRequest
 {
@@ -21,28 +22,36 @@ class PostCreateRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
+
+    protected function prepareForValidation()
+    {
+        if ($this->input('slug')) {
+            $this->merge(['slug' => make_slug($this->input('slug'))]);
+        } else {
+            $this->merge(['slug' => make_slug($this->input('title'))]);
+        }
+    }
     public function rules()
     {
         return [
-            'title'=>'required|min:10',
-            'slug' =>'unique:posts',
-            'description'=>'required',
-            'first_photo'=>'required',
-            'category'=>'required',
-            'status'=>'required',
+            'title' => 'required|min:10',
+            'slug' => Rule::unique('posts')->ignore(request()->post),
+            'description' => 'required',
+            'category' => 'required',
+            'status' => 'required',
         ];
     }
 
     public function messages()
     {
-        return[
-            'title.required'=>'لطفا عنوان مطلب را وارد کنید',
-            'title.min'=>'عنوان باید حداقل 10 کاراکتر داشته باشد.',
-            'slug.unique' =>'این نام مستعار قبلا ثبت شده است.',
-            'first_photo.required' =>'لطفا تصویر اصلی مطلب را وارد کنید.',
-            'description.required' =>'لطفا توضیحات را وارد کنید.',
-            'category.required' =>'لطفا دسته بندی را انتخاب کنید.',
-            'status.required' =>'لطفا وضعیت را انتخاب کنید.',
+        return [
+            'title.required' => 'لطفا عنوان مطلب را وارد کنید',
+            'title.min' => 'عنوان باید حداقل 10 کاراکتر داشته باشد.',
+            'slug.unique' => 'این نام مستعار قبلا ثبت شده است.',
+            'first_photo.required' => 'لطفا تصویر اصلی مطلب را وارد کنید.',
+            'description.required' => 'لطفا توضیحات را وارد کنید.',
+            'category.required' => 'لطفا دسته بندی را انتخاب کنید.',
+            'status.required' => 'لطفا وضعیت را انتخاب کنید.',
         ];
     }
 }

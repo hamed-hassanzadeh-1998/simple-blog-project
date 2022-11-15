@@ -4,7 +4,7 @@
     <h3>ایجاد دسته بندی جدید</h3>
 
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-6 offset-md-3">
             @include('partials.form-errors')
             {!! Form::open(['method'=>'POST','route'=>'category.store']) !!}
             <div class="form-group">
@@ -14,22 +14,6 @@
             <div class="form-group">
                 {!! Form::label('slug',"نام مستعار:") !!}
                 {!! Form::text('slug',null,['class'=>'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('category',"دسته بندی:") !!}
-                {!! Form::select('category',$categories,null,['class'=>'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('description',"توضیحات:") !!}
-                {!! Form::textarea('description',null,['class'=>'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('status',"وضعیت:") !!}
-                {!! Form::select('status',[0=>'غیرفعال',1=>'فعال'], 1,['class'=>'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('first_photo','تصویر اصلی : ') !!}
-                {!! Form::file('first_photo',null,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('meta_description',"متای توضیحات:") !!}

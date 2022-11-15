@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminCategoryController extends Controller
 {
@@ -14,7 +17,8 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        return view();
+        $categories = Category::all();
+        return view('admin.category.index', compact(['categories']));
     }
 
     /**
@@ -24,18 +28,30 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\CategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $category = new Category();
+        $category->title = $request->input('title');
+        if ($request->input('slug')) {
+            $category->slug = make_slug($request->input('slug'));
+        } else {
+            $category->slug = make_slug($category->title);
+        }
+
+        $category->title = $request->input('meta_description');
+        $category->title = $request->input('meta_keywords');
+        $category->save();
+        Session::flash('add_category', 'دسته بندی جدید با موفقیت ایجاد شد.');
+        return view('admin.category.index');
     }
 
     /**
@@ -57,7 +73,8 @@ class AdminCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category=Category::query()->findOrFail($id);
+        return view('admin.category.edit',compact(['category']));
     }
 
     /**
@@ -69,7 +86,18 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category=new Category();
+        $category->title = $request->input('title');
+        if ($request->input('slug')) {
+            $category->slug = make_slug($request->input('slug'));
+        } else {
+            $category->slug = make_slug($category->title);
+        }
+        $category->title = $request->input('meta_description');
+        $category->title = $request->input('meta_keywords');
+        $category->save();
+        Session::flash('update_category', 'دسته بندی با موفقیت به روز رسانی شد.');
+        return view('admin.category.index');
     }
 
     /**
@@ -80,6 +108,9 @@ class AdminCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category= Category::query()->findOrFail($id);
+        $category->delete();
+        Session::flash('delete_category', 'دسته بندی با موفقیت حذف شد.');
+        return view('admin.category.index');
     }
 }

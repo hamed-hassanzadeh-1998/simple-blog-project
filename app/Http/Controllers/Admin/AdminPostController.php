@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostCreateRequest;
+use App\Http\Requests\PostEditRequest;
 use App\Models\Category;
 use App\Models\Photo;
 use App\Models\Post;
@@ -107,7 +108,7 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostEditRequest $request, $id)
     {
         $post=Post::query()->findOrFail($id);
         if ($file = $request->file('first_photo')) {
