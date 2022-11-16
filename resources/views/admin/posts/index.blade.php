@@ -57,4 +57,7 @@ use \Illuminate\Support\Facades\Session:class;
             @endforeach
         </tbody>
     </table>
+    <div class="md-12">
+    {{$posts->links()}}
+    </div>
 @endsection

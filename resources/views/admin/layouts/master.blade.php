@@ -48,12 +48,13 @@
                 <a class="nav-link navbar-toggler layout-toggler" href="#">&#9776;</a>
             </li>
 
-            <!--<li class="nav-item p-x-1">
+           <!-- <li class="nav-item p-x-1">
                 <a class="nav-link" href="#">داشبورد</a>
             </li>
             <li class="nav-item p-x-1">
                 <a class="nav-link" href="#">Users</a>
             </li>
+            </li
             <li class="nav-item p-x-1">
                 <a class="nav-link" href="#">Settings</a>
             </li>-->
@@ -95,7 +96,7 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="fa fa-tachometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
+                <a class="nav-link" href="{{route('dashboard.index')}}"><i class="fa fa-tachometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
             </li>
 
 
