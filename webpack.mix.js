@@ -8,7 +8,7 @@ mix.styles([
     'resources/admin/dist/style.css',
     'resources/admin/dist/style-custom.css',
 ], 'public/css/all.css')
-mix.sass('resources/admin/css/fonta.scss','public/css/all.css')
+mix.sass('resources/admin/css/fonta.scss', 'public/css/all.css')
 mix.scripts([
     'resources/admin/js/libs/jquery.min.js',
     'resources/admin/js/libs/bootstrap.min.js',
@@ -18,3 +18,6 @@ mix.scripts([
     'resources/admin/js/views/main.js'
 
 ], 'public/js/all.js')
+
+mix.styles(['resources/admin/css/dropzone.min.css'], 'public/css/dropzone.css')
+    .scripts(['resources/admin/js/dropzone.min.js'], 'public/js/dropzone.js')

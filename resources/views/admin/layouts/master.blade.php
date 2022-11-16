@@ -23,7 +23,7 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-
+    @yield('styles')
 
 </head>
 <!-- BODY options, add following classes to body to change options
@@ -122,18 +122,30 @@
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>دسته بندی</a>
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-clipboard"></i>دسته بندی</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('category.index')}}"><i class="fa-solid  fa-window-maximize"></i> لیست دسته بندی</a>
+                        <a class="nav-link" href="{{route('category.index')}}"><i class=" 	fa fa-clipboard"></i> لیست دسته بندی</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('category.create')}}"><i class="fa-solid  fa-window-maximize"></i>ثبت دسته بندی جدید</a>
+                        <a class="nav-link" href="{{route('category.create')}}"><i class=" 	fa fa-clipboard"></i>ثبت دسته بندی جدید</a>
+                    </li>
+                </ul>
+            </li>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>رسانه</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('photos.index')}}"><i class="far fa-folder"></i> لیست فایل ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('photos.create')}}"><i class="far fa-folder"></i>آپلود فایل جدید</a>
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-title">
+            {{-- <li class="nav-title">
                 مدیریت فایل ها
             </li>
             <li class="nav-item">
@@ -146,7 +158,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> کاربران</a>
                 <a class="nav-link" href="#"><i class="fa icon-docs"></i>  فایل ها</a>
-            </li>
+            </li> --}}
 
             <!--<li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Icons</a>
@@ -590,6 +602,7 @@
         </span>
 </footer>
 <script src="{{asset('js/all.js')}}" type="application/javascript"></script>
+@yield('scripts')
 </body>
 
 </html>

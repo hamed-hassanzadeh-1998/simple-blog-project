@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminUserController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::group(['middleware'=>'Admin'],function (){
     Route::resource('admin/users',AdminUserController::class);
     Route::resource('admin/posts',AdminPostController::class);
     Route::resource('admin/category',AdminCategoryController::class);
+    Route::resource('admin/photos',AdminPhotoController::class);
+    Route::get('admin/photos/upload',[AdminPhotoController::class,'upload'])->name('photos.upload');
 });
 
 
