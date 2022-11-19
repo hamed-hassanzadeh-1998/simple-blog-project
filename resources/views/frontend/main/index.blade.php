@@ -15,7 +15,9 @@
 
     @foreach ($posts as $post)
         <!-- Title -->
-        <h1 class="mt-4">{{$post->title}}</h1>
+        <h1 class="mt-4"><a href="{{ route('f.posts.show',$post->slug)}}">
+        {{$post->title}}
+        </a></h1>
 
         <!-- Author -->
         <p class="lead">
@@ -40,7 +42,7 @@
         {{ Str::limit($post->description,120)}}
        </div>
     <div class="col-md-12 text-right">
-        <a href="{{ route('f.posts.show', $post->id) }}" class="btn btn-primary text-right"> ادامه مطلب</a>
+        <a href="{{ route('f.posts.show', $post->slug) }}" class="btn btn-primary text-right"> ادامه مطلب</a>
     </div>
         <hr>
 
