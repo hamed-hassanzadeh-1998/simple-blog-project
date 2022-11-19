@@ -13,13 +13,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Roxo Administrator">
-    <meta name="author" content="Masoud Salehi">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <meta name="keyword" content="Bootstrap Data">
     <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
     <title>صفحه مدیریت</title>
     <!-- Icons -->
-    <link rel="stylesheet" href="{{asset('css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('css/all-admin.css')}}">
     <!-- CSS only -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
@@ -602,7 +602,7 @@
             Powered by <a href="http://www.roxo.ir">CoreUI</a>
         </span>
 </footer>
-<script src="{{asset('js/all.js')}}" type="application/javascript"></script>
+<script src="{{asset('js/all-admin.js')}}" type="application/javascript"></script>
 @yield('scripts')
 </body>
 

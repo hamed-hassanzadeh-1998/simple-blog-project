@@ -74,7 +74,7 @@ class AdminPostController extends Controller
         $post->status = $request->input('status');
         $post->save();
         Session::flash('add_post', "مطلب جدید با موفقیت اضافه شد");
-        return redirect('/admin/posts/index');
+        return view('admin.posts.index');
     }
 
     /**

@@ -38,7 +38,6 @@ use \Illuminate\Support\Facades\Session:class;
             @endforeach
         </tbody>
     </table>
-    <div class="col-md-12">
         {{$categories->links()}}
-    </div>
+
 @endsection

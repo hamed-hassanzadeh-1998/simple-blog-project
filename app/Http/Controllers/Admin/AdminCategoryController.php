@@ -47,11 +47,11 @@ class AdminCategoryController extends Controller
             $category->slug = make_slug($category->title);
         }
 
-        $category->title = $request->input('meta_description');
-        $category->title = $request->input('meta_keywords');
+        $category->meta_description= $request->input('meta_description');
+        $category->meta_keywords= $request->input('meta_keywords');
         $category->save();
         Session::flash('add_category', 'دسته بندی جدید با موفقیت ایجاد شد.');
-        return view('admin.category.index');
+        return redirect('admin.category.index');
     }
 
     /**

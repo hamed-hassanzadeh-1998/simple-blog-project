@@ -18,9 +18,6 @@
         <div class="col-sm-6 col-lg-3">
             <div class="card card-inverse card-info">
                 <div class="card-block p-b-0">
-                    <button type="button" class="btn btn-transparent active p-a-0 pull-left">
-                        <i class="icon-location-pin"></i>
-                    </button>
                     <h4 class="m-b-0">{{ $categoriesCount }}</h4>
                     <p>دسته بندی ها</p>
                 </div>
