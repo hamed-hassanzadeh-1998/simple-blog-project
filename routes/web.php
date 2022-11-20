@@ -38,6 +38,7 @@ Route::group(['middleware' => 'Admin'], function () {
 
 Route::get('/', [MainController::class, 'index']);
 Route::get('posts/{slug}', [PostController::class, 'show'])->name('f.posts.show');
+Route::get('search/', [PostController::class, 'searchTitle'])->name('f.posts.search');
 
 
 require __DIR__ . '/auth.php';

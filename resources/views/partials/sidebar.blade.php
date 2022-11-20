@@ -1,14 +1,16 @@
 @section('sidebar')
     <!-- Search Widget -->
     <div class="card my-4">
-        <h5 class="card-header">Search</h5>
+        <h5 class="card-header">جستجو</h5>
         <div class="card-body">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
+            {!! Form::open(['method' => 'GET' , 'route' =>'f.posts.search'])!!}
+            <div class="form-group">
+                {!!Form::text('title',null,['class'=>'form-control']) !!}
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button">Go!</button>
+                    {!! Form::submit('جستجو',['class'=>'btn btn-secondary']) !!}
                 </span>
             </div>
+            {!! Form::close() !!}
         </div>
     </div>
 
@@ -25,7 +27,7 @@
             @endforeach
         </div>
     </div>
-    
+
 
     <!-- Side Widget -->
     <div class="card my-4">
