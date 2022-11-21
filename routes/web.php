@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -34,6 +35,11 @@ Route::group(['middleware' => 'Admin'], function () {
     Route::resource('admin/photos', AdminPhotoController::class);
     Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
     Route::get('admin/photos/upload', [AdminPhotoController::class, 'upload'])->name('photos.upload');
+    Route::get('admin/comment', [CommentController::class, 'index'])->name('comments.index');
+    Route::get('admin/comments/{id}', [CommentController::class, 'edit'])->name('comments.edit');
+    Route::patch('admin/comments/{id}', [CommentController::class, 'update'])->name('comments.update');
+    Route::delete('admin/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+    Route::post('admin/actions/{id}', [CommentController::class, 'action'])->name('comments.action');
 });
 
 Route::get('/', [MainController::class, 'index']);

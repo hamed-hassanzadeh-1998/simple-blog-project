@@ -145,6 +145,16 @@
                     </li>
                 </ul>
             </li>
+            </li>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>نظرات</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('comments.index')}}"><i class="far fa-folder"></i> لیست نظرات</a>
+                    </li>
+                </ul>
+            </li>
 
             {{-- <li class="nav-title">
                 مدیریت فایل ها
