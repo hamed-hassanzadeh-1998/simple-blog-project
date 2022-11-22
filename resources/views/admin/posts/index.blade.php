@@ -35,7 +35,7 @@ use \Illuminate\Support\Facades\Session:class;
         <tbody>
             @foreach ($posts as $post)
                 <tr>
-                    <td><img src="{{ $post->photo ? $post->photo->path : 'http://www.placehold.it/400' }}" alt=""
+                    <td><img src="{{ $post->photo ? $post->photo->path : 'https://via.placeholder.com/400' }}" alt=""
                             class="img-fluid img-circle" width="65"></td>
                     <td><a href="{{ route('posts.edit', $post) }}">{{ $post->title }}</a></td>
                     <td>{{ $post->user->name }}</td>

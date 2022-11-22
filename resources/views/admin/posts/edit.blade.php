@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <img src="{{$post->photo?$post->photo->path : "http://www.placehold.it/400"}}" alt=""
+            <img src="{{$post->photo?$post->photo->path : "https://via.placeholder.com/400"}}" alt=""
                  class="img-fluid img-circle img-thumbnail">
         </div>
         <div class="col-md-9">

@@ -90,7 +90,7 @@
                 <tbody>
                 @foreach($users as $user)
                     <tr>
-                        <td><img src="{{$user->photo?$user->photo->path : "http://www.placehold.it/400"}}" alt=""
+                        <td><img src="{{$user->photo?$user->photo->path : "https://via.placeholder.com/400"}}" alt=""
                                  class="img-fluid img-circle" width="65"></td>
                         <td><a href="{{route('users.edit',$user)}}">{{$user->name}}</a></td>
                         <td>{{verta($user->created_at)}}</td>

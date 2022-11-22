@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\frontend\MainController;
+use App\Http\Controllers\frontend\CommentController as frontCommentController;
 use App\Http\Controllers\frontend\PostController;
 
 /*
@@ -45,6 +46,8 @@ Route::group(['middleware' => 'Admin'], function () {
 Route::get('/', [MainController::class, 'index']);
 Route::get('posts/{slug}', [PostController::class, 'show'])->name('f.posts.show');
 Route::get('search/', [PostController::class, 'searchTitle'])->name('f.posts.search');
+Route::post('comments/{postId}',[frontCommentController::class, 'store'])->name('frontend.comments.store');
+Route::post('comments',[frontCommentController::class, 'reply'])->name('frontend.comments.reply');
 
 
 require __DIR__ . '/auth.php';
