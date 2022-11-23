@@ -60,4 +60,14 @@ class AdminPhotoController extends Controller
          Session::flash('delete_photo','فایل با موفقیت حذف شد');
         return redirect('admin/photos');
     }
+     public function deleteAll(Request $request)
+     {
+        $photos=Photo::query()->findOrFail($request->checkBoxArray);
+        foreach($photos as $photo){
+            $photo->delete();
+            unlink(\public_path().$photo->path);
+        }
+        Session::flash('delete_photos','فایل ها با موفقیت حذف شد');
+        return redirect()->back();
+     }
 }

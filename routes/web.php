@@ -36,6 +36,7 @@ Route::group(['middleware' => 'Admin'], function () {
     Route::resource('admin/photos', AdminPhotoController::class);
     Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
     Route::get('admin/photos/upload', [AdminPhotoController::class, 'upload'])->name('photos.upload');
+    Route::delete('admin/delete/media', [AdminPhotoController::class, 'deleteAll'])->name('photos.delete.all');
     Route::get('admin/comment', [CommentController::class, 'index'])->name('comments.index');
     Route::get('admin/comments/{id}', [CommentController::class, 'edit'])->name('comments.edit');
     Route::patch('admin/comments/{id}', [CommentController::class, 'update'])->name('comments.update');
