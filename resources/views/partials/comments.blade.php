@@ -1,7 +1,6 @@
 <script type="text/javascript">
     $('.btn-open').click(function() {
         $('.form-reply').css('display', 'none')
-
         var service = this.id
         var service_id = '#f-' + service
         $(service_id).show('slow')
