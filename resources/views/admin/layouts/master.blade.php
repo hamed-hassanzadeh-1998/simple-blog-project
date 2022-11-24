@@ -13,16 +13,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Roxo Administrator">
-    <meta name="author" content="Masoud Salehi">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <meta name="keyword" content="Bootstrap Data">
     <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
     <title>صفحه مدیریت</title>
     <!-- Icons -->
-    <link rel="stylesheet" href="{{asset('css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('css/all-admin.css')}}">
+    <!-- CSS only -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('styles')
 
 </head>
 <!-- BODY options, add following classes to body to change options
@@ -47,12 +52,13 @@
                 <a class="nav-link navbar-toggler layout-toggler" href="#">&#9776;</a>
             </li>
 
-            <!--<li class="nav-item p-x-1">
+           <!-- <li class="nav-item p-x-1">
                 <a class="nav-link" href="#">داشبورد</a>
             </li>
             <li class="nav-item p-x-1">
                 <a class="nav-link" href="#">Users</a>
             </li>
+            </li
             <li class="nav-item p-x-1">
                 <a class="nav-link" href="#">Settings</a>
             </li>-->
@@ -94,19 +100,67 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="fa fa-tachometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
+                <a class="nav-link" href="{{route('dashboard.index')}}"><i class="fa fa-tachometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
             </li>
 
-            <li class="nav-title">
-                مدیریت کاربران
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fas fa-user-circle"></i>کاربران</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('users.index')}}"><i class="fa-solid fa-users"></i> لیست کاربران</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('users.create')}}"><i class="fa-solid fa-user-plus"></i>ثبت کاربر جدید</a>
+                    </li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-user-plus"></i> ثبت کاربر</a>
-                <a class="nav-link" href="#"><i class="fas fa-users"></i> لیست کاربران</a>
-                <a class="nav-link" href="#"><i class="	fas fa-user-slash"></i> دسترسی کاربران</a>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fas fa fa-window-maximize"></i>مطالب</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('posts.index')}}"><i class="fa-solid  fa-window-maximize"></i> لیست مطالب</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('posts.create')}}"><i class="fa-solid  fa-window-maximize"></i>ثبت مطلب جدید</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-clipboard"></i>دسته بندی</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('category.index')}}"><i class=" 	fa fa-clipboard"></i> لیست دسته بندی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('category.create')}}"><i class=" 	fa fa-clipboard"></i>ثبت دسته بندی جدید</a>
+                    </li>
+                </ul>
+            </li>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>رسانه</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('photos.index')}}"><i class="far fa-folder"></i> لیست فایل ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('photos.create')}}"><i class="far fa-folder"></i>آپلود فایل جدید</a>
+                    </li>
+                </ul>
+            </li>
+            </li>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>نظرات</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('comments.index')}}"><i class="far fa-folder"></i> لیست نظرات</a>
+                    </li>
+                </ul>
             </li>
 
-            <li class="nav-title">
+            {{-- <li class="nav-title">
                 مدیریت فایل ها
             </li>
             <li class="nav-item">
@@ -119,30 +173,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> کاربران</a>
                 <a class="nav-link" href="#"><i class="fa icon-docs"></i>  فایل ها</a>
-            </li>
-            <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-puzzle-piece"></i> ثبت کاربر جدید</a>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-buttons.html"><i class="fa fa-puzzle-piece"></i> لیست کاربران</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-social-buttons.html"><i class="fa fa-puzzle-piece"></i> Social Buttons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-cards.html"><i class="fa fa-puzzle-piece"></i> Cards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-forms.html"><i class="fa fa-puzzle-piece"></i> Forms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-switches.html"><i class="fa fa-puzzle-piece"></i> Switches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-tables.html"><i class="fa fa-puzzle-piece"></i> Tables</a>
-                    </li>
-                </ul>
-            </li>
+            </li> --}}
 
             <!--<li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Icons</a>
@@ -206,7 +237,7 @@
         </li>
     </ol>
 
-    <div class="container-fluid">
+    <div class="container-fluid bg-content">
 
         <div class="animated fadeIn">
             <div class="row">
@@ -580,7 +611,8 @@
             Powered by <a href="http://www.roxo.ir">CoreUI</a>
         </span>
 </footer>
-<script src="{{asset('js/all.js')}}" type="application/javascript"></script>
+<script src="{{asset('js/all-admin.js')}}" type="application/javascript"></script>
+@yield('scripts')
 </body>
 
 </html>

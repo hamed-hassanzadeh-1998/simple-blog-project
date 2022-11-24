@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'photo_id', 'status'
     ];
 
     /**
@@ -44,6 +45,31 @@ class User extends Authenticatable
 
     public function roles()
     {
-        $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+    public function photo()
+    {
+        return $this->belongsTo(Photo::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
+
+    public function isAdmin()
+    {
+        foreach ($this->roles as $role) {
+            if ($role->name == 'مدیر' && $this->status == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
